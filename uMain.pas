@@ -1276,7 +1276,7 @@ begin
   result := '???';
   ts := tStringList.Create;
   try
-    ts.LoadFromFile(BaseDir + '\readme_de.txt');
+    ts.LoadFromFile(BaseDir + '\readme_en.txt');
     if ts.count < 1 then
       exit;
     s := LowerCase(ts[0]);
