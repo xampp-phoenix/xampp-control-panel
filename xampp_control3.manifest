@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3">
-  <assemblyIdentity type="win32" name="xampp_control3" version="3.2.2.0" processorArchitecture="*"/>
+  <assemblyIdentity type="win32" name="xampp_control3" version="3.2.4.0" processorArchitecture="*"/>
   <dependency>
     <dependentAssembly>
       <assemblyIdentity
