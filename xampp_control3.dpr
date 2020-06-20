@@ -1,7 +1,13 @@
 // JCL_DEBUG_EXPERT_INSERTJDBG OFF
 program xampp_control3;
 
+{$R *.res}
 {$R *.dres}
+
+{$IF CompilerVersion >= 21.0}
+{$WEAKLINKRTTI ON}
+{$RTTI EXPLICIT METHODS([]) PROPERTIES([]) FIELDS([])}
+{$ENDIF}
 
 uses
   Forms,

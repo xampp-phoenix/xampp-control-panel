@@ -19,7 +19,7 @@ uses
   Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, ComCtrls, Buttons, uTools, uTomcat,
   uApache, uMySQL, uFileZilla, uMercury, uNetstat, uNetstatTable, Menus,
-  IniFiles, AppEvnts, ImgList, JCLDebug, JCLSysInfo, uProcesses_new;
+  IniFiles, AppEvnts, ImgList, JCLDebug, JCLSysInfo, uProcesses_new, UITypes;
 
 type
   TfMain = class(TForm)
@@ -642,11 +642,13 @@ const
     'SET "PHP_PEAR_TEST_DIR=%~dp0php\tests"' + cr + 'SET "PHP_PEAR_WWW_DIR=%~dp0php\www"' + cr + 'SET "PHP_PEAR_CFG_DIR=%~dp0php\cfg"' + cr +
     'SET "PHP_PEAR_DATA_DIR=%~dp0php\data"' + cr + 'SET "PHP_PEAR_DOC_DIR=%~dp0php\docs"' + cr + 'SET "PHP_PEAR_PHP_BIN=%~dp0php\php.exe"' + cr +
     'SET "PHP_PEAR_INSTALL_DIR=%~dp0php\pear"' + cr + 'SET "PHPRC=%~dp0php"' + cr + 'SET "TMP=%~dp0tmp"' + cr + 'SET "PERL5LIB="' + cr +
-    'SET "Path=%~dp0;%~dp0php;%~dp0perl\site\bin;%~dp0perl\bin;%~dp0apache\bin;%~dp0mysql\bin;%~dp0FileZillaFTP;%~dp0MercuryMail;%~dp0sendmail;%~dp0webalizer;%~dp0tomcat\bin;%Path%"'
+    'SET "Path=%~dp0;%~dp0php;%~dp0perl\site\bin;%~dp0perl\bin;%~dp0apache\bin;%~dp0mysql\bin;%~dp0FileZillaFTP;%~dp0MercuryMail"' + cr + 
+    'SET "Path=%~dp0sendmail;%~dp0webalizer;%~dp0tomcat\bin;%~dp0jre\bin;%~dp0python;%Path%"'
     + cr + 'GOTO :EOF' + cr + ':weiter' + cr + '' + cr + 'IF "%1" EQU "setenv" (' + cr + '    ECHO.' + cr +
     '    ECHO Setting environment for using XAMPP for Windows.' + cr + '    CALL :setenv' + cr + ') ELSE (' + cr + '    SETLOCAL' + cr +
-    '    TITLE XAMPP for Windows' + cr + '    PROMPT %username%@%computername%$S$P$_#$S' + cr + '    START "" /B %COMSPEC% /K "%~f0" setenv'
-    + cr + ')';
+    '    TITLE XAMPP for Windows' + cr + '    IF  NOT EXIST %~dp0\install\busybox.exe (' + cr + '        PROMPT %username%@%computername%$S$P$_#$S' + cr +
+    '        START "" /B %COMSPEC% /K "%~f0" setenv' + cr + '    ) ELSE (' + cr + '        call "%~f0" setenv' +  cr +
+    '        %~dp0\install\busybox.exe sh' + cr + '    )' + cr + ')';
   cFilename = 'xampp_shell.bat';
 var
   ts: tStringList;
@@ -1274,7 +1276,7 @@ begin
   result := '???';
   ts := tStringList.Create;
   try
-    ts.LoadFromFile(BaseDir + '\readme_de.txt');
+    ts.LoadFromFile(BaseDir + '\readme_en.txt');
     if ts.count < 1 then
       exit;
     s := LowerCase(ts[0]);

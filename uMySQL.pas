@@ -240,7 +240,7 @@ begin
   else
   begin
     AddLog(Format(_('Attempting to start %s app...'), [cModuleName]));
-    App := '"' + basedir + 'mysql\bin\' + Config.BinaryNames.MySQL + '" --defaults-file="' + basedir + 'mysql\bin\my.ini" --standalone';
+    App := '"' + basedir + 'mysql\bin\' + Config.BinaryNames.MySQL + '" --defaults-file="' + basedir + 'mysql\bin\my.ini" --standalone --console';
     AddLog(Format(_('Executing "%s"'), [App]), ltDebug);
     RC := RunProcess(App, SW_HIDE, False);
     if RC = 0 then
@@ -279,10 +279,11 @@ begin
       for i := 0 to PIDList.Count - 1 do
       begin
         pPID := Integer(PIDList[i]);
-        AddLog(Format(_('Attempting to stop %s app...'), [cModuleName]));
+        AddLog(_('Attempting to stop') + ' ' + cModuleName + ' ' + Format('(PID: %d)', [pPID]));
         if not TerminateProcessByID(pPID) then
         begin
-          AddLog(Format(_('There may be an error, return code: %d - %s'), [RC, SystemErrorMessage(RC)]), ltError);
+          AddLog(Format(_('Problem killing PID %d'), [pPID]), ltError);
+          AddLog(_('Check that you have the proper privileges'), ltError);
         end;
       end;
     end
