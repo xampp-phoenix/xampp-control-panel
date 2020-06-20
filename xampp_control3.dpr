@@ -1,13 +1,7 @@
 // JCL_DEBUG_EXPERT_INSERTJDBG OFF
 program xampp_control3;
 
-{$R *.res}
 {$R *.dres}
-
-{$IF CompilerVersion >= 21.0}
-{$WEAKLINKRTTI ON}
-{$RTTI EXPLICIT METHODS([]) PROPERTIES([]) FIELDS([])}
-{$ENDIF}
 
 uses
   Forms,
@@ -37,7 +31,7 @@ uses
   uProcesses_new in 'uProcesses_new.pas';//,
   //uExceptionDialog in 'uExceptionDialog.pas' {ExceptionDialog};
 
-
+{$R *.res}
 
 begin
   AddDomainForResourceString('delphi2006_de_en');

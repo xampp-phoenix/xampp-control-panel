@@ -3,7 +3,7 @@ unit uTools;
 interface
 
 uses GnuGettext, Classes, Graphics, Windows, SysUtils, TlHelp32, ShellAPI,
-  Forms, Dialogs, IniFiles, Character, JCLSecurity, StrUtils, JCLFileUtils, UITypes;
+  Forms, Dialogs, IniFiles, Character, JCLSecurity, StrUtils, JCLFileUtils;
 
 const
   cRunningColor = 200 * $10000 + 255 * $100 + 200;
@@ -11,7 +11,7 @@ const
   cStoppedColor = clBtnFace;
   cErrorColor = Graphics.clRed;
 
-  cCompileDate = 'Dec  8th 2017';
+  cCompileDate = 'Jun 5th 2019';
   cr = #13#10;
 
 type
