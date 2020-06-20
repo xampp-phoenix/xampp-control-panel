@@ -1,8 +1,8 @@
 #define CONST_MAJOR 3
 #define CONST_MINOR 2
 #define CONST_RELEASE 4
-#define CONST_BUILD 22
-#define CONST_VERSION "3.2.4.22\000" 
+#define CONST_BUILD 27
+#define CONST_VERSION "3.2.4.27\000" 
 
 MAINICON ICON "gfx\\XAMPP.ICO"
 
