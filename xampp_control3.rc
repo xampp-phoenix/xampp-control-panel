@@ -1,28 +1,35 @@
 #define CONST_MAJOR 3
 #define CONST_MINOR 2
 #define CONST_RELEASE 4
-#define CONST_BUILD 27
-#define CONST_VERSION "3.2.4.27\000" 
+#define CONST_BUILD 28
+#define CONST_VERSION "3.2.4.28\0"
+#define CONST_COMPILE_DATE "Jun 21th 2020\0"
 
 MAINICON ICON "gfx\\XAMPP.ICO"
 
 1 VERSIONINFO
 FILEVERSION CONST_MAJOR,CONST_MINOR,CONST_RELEASE,CONST_BUILD
 PRODUCTVERSION CONST_MAJOR,CONST_MINOR,CONST_RELEASE,CONST_BUILD
-FILEOS 0x4
-FILETYPE 0x1
+FILEFLAGSMASK 0x3fL
+FILEFLAGS     0x20L|0x08L /* VS_FF_SPECIALBUILD | VS_FF_PRIVATEBUILD */
+FILEOS        0x4L      /* VOS_WINDOWS32 */
+FILETYPE      0x1L      /* VFT_APP       */
+FILESUBTYPE   0x0L      /* VFT2_UNKNOWN   */
+
 {
 BLOCK "StringFileInfo"
 {
     BLOCK "040904E4"
     {
-        VALUE "CompanyName", "\0"
+        VALUE "CompanyName", "Apache Friends\0"
         VALUE "FileDescription", "XAMPP Control Panel\0"
         VALUE "FileVersion", CONST_VERSION
         VALUE "InternalName", "xampp_control3.exe\0"
         VALUE "LegalCopyright", "©hackattack142\0"
-        VALUE "LegalTrademarks", "\0"
+        VALUE "LegalTrademarks", "Apache Friends®\0"
         VALUE "OriginalFilename", "xampp_control3.exe\0"
+        VALUE "PrivateBuild", "\0"
+        VALUE "SpecialBuild", CONST_COMPILE_DATE
         VALUE "ProductName", "xampp_control3\0"
         VALUE "ProductVersion", CONST_VERSION
         VALUE "Comments", "XAMPP Control Panel\0"
@@ -31,7 +38,10 @@ BLOCK "StringFileInfo"
 
 BLOCK "VarFileInfo"
 {
-    VALUE "Translation", 0x0409 0x04E4
+    VALUE "Translation", 0x0409, 1252 //U.S. English
+    //VALUE "Translation", 0x0407, 1252 //German
+    //VALUE "Translation", 0x0404, 1252 //Traditional Chinese
+    //VALUE "Translation", 0x0804, 1252 //Simplified Chinese
 }
 }
 1 24 "xampp_control3.manifest"

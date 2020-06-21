@@ -37,7 +37,7 @@ uses
   uProcesses_new in 'uProcesses_new.pas';//,
   //uExceptionDialog in 'uExceptionDialog.pas' {ExceptionDialog};
 
-{$R *.res}
+//{$R *.res}
 
 begin
   AddDomainForResourceString('delphi2006_de_en');
